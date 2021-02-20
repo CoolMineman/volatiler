@@ -18,7 +18,7 @@ import net.fabricmc.loader.api.FabricLoader;
 import net.fabricmc.loader.api.MappingResolver;
 
 public class VolatilerExtension implements IExtension {
-    private static final Format TIME_FORMAT = new SimpleDateFormat("HH:mm:ss");
+    private final Format timeFormat = new SimpleDateFormat("HH:mm:ss");
 
     private final Map<String, Map<String, String>> volatilerMap;
 
@@ -59,8 +59,8 @@ public class VolatilerExtension implements IExtension {
 		return cname.replace('/', '.');
 	}
 
-    private static void println(String string) {
-		System.out.println("[" + TIME_FORMAT.format(new Date()) + "] [main/INFO] (Volatiler) " + string);
+    private void println(String string) {
+		System.out.println("[" + timeFormat.format(new Date()) + "] [main/INFO] (Volatiler) " + string);
 	}
 
     @Override
