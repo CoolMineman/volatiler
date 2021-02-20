@@ -30,13 +30,13 @@ public class VolatilerMixinPlugin implements IMixinConfigPlugin {
             Path volatilerPath = modContainer.getPath("volatiler.txt");
             if (Files.isRegularFile(volatilerPath)) {
                 try {
-					for (String line : Files.readAllLines(volatilerPath)) {
-					    String[] a = line.split("\t");
+                    for (String line : Files.readAllLines(volatilerPath)) {
+                        String[] a = line.split("\t");
                         volatilerMap.computeIfAbsent(a[0], b -> new HashMap<>()).put(a[1], a[2]);
-					}
-				} catch (IOException e) {
-					throw new RuntimeException(e);
-				}
+                    }
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
             }
         }
         ((Extensions)((IMixinTransformer)MixinEnvironment.getDefaultEnvironment().getActiveTransformer()).getExtensions()).add(new VolatilerExtension(volatilerMap));

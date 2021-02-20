@@ -56,12 +56,12 @@ public class VolatilerExtension implements IExtension {
     }
 
     private static String replaceSlashesWithDots(String cname) {
-		return cname.replace('/', '.');
-	}
+        return cname.replace('/', '.');
+    }
 
     private void println(String string) {
-		System.out.println("[" + timeFormat.format(new Date()) + "] [main/INFO] (Volatiler) " + string);
-	}
+        System.out.println("[" + timeFormat.format(new Date()) + "] [main/INFO] (Volatiler) " + string);
+    }
 
     @Override
     public void export(MixinEnvironment env, String name, boolean force, ClassNode classNode) {
